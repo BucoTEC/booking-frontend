@@ -1,6 +1,6 @@
 import React from "react";
 
-import Login from "../../ui/pageviews/Login";
+import Login from "../../ui/pageviews/login/Login";
 
 function LoginPage() {
 	return (
