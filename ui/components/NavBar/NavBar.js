@@ -6,12 +6,13 @@ import cl from "./NavBar.module.scss";
 function NavBar() {
 	return (
 		<div className={cl.wrapper}>
-			<Link href="/">test1</Link>
-			<Link href="/">test2</Link>
-			<Link href="/">test3</Link>
-			<Link href="/">test4</Link>
-			<Link href="/">test5</Link>
-			<Link href="/">test6</Link>
+			<Link href="/">HOME</Link>
+			<Link href="/about">ABOUTE</Link>
+			<Link href="/admin">ADMIN</Link>
+			<Link href="/auth/login">LOGIN</Link>
+			<Link href="/auth/register">REGISTER</Link>
+			<Link href="/bookings">BOOKINGS</Link>
+			<Link href="/profile">PROFILE</Link>
 		</div>
 	);
 }

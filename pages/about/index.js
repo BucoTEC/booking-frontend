@@ -5,4 +5,3 @@ function MoreAboutUs() {
 }
 
 export default MoreAboutUs;
-s;
