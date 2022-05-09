@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import cl from "./LoginForm.module.scss";
 
+import instance from "../../../../api/axiosInstance";
+
 function LoginForm() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -14,8 +16,16 @@ function LoginForm() {
 		setPassword(e.target.value);
 	};
 
-	const submitHandler = () => {
+	const submitHandler = async () => {
 		console.log(email, password);
+
+		try {
+			const res = await instance.get("/");
+			console.log(res);
+		} catch (error) {
+			console.log(error);
+		}
+
 		setEmail("");
 		setPassword("");
 	};
