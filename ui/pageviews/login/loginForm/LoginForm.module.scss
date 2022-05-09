@@ -2,8 +2,11 @@
 	color: red;
 }
 
-.input-wrapper {
+.input_wrapper {
+	display: flex;
+	flex-direction: column;
 	input {
 		margin-bottom: 0.5rem;
+		max-width: 20rem;
 	}
 }

@@ -4,7 +4,7 @@ import cl from "./LoginForm.module.scss";
 
 function LoginForm() {
 	return (
-		<div className={cl.input - wrapper}>
+		<div className={cl.input_wrapper}>
 			<div className={cl.header}>LoginForm</div>
 			<p>this is the login fomre</p>
 
