@@ -13,6 +13,7 @@ function NavBar() {
 			<Link href="/auth/register">REGISTER</Link>
 			<Link href="/bookings">BOOKINGS</Link>
 			<Link href="/profile">PROFILE</Link>
+			<span>LOG OUT</span>
 		</div>
 	);
 }
