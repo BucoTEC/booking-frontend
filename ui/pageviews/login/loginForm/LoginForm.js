@@ -5,11 +5,11 @@ import cl from "./LoginForm.module.scss";
 function LoginForm() {
 	return (
 		<div className={cl.input_wrapper}>
-			<div className={cl.header}>LoginForm</div>
-			<p>this is the login fomre</p>
+			<h1 className={cl.header}>Login</h1>
 
-			<input type="email" name="email" />
-			<input type="password" name="password" />
+			<input type="email" name="email" placeholder="email" />
+			<input type="password" name="password" placeholder="password" />
+			<button>Login</button>
 		</div>
 	);
 }
