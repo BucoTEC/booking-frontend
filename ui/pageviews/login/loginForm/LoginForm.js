@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import cl from "./LoginForm.module.scss";
 
 import instance from "../../../../api/axiosInstance";
+import axios from "axios";
 
 function LoginForm() {
 	const [email, setEmail] = useState("");
@@ -17,11 +18,12 @@ function LoginForm() {
 	};
 
 	const submitHandler = async () => {
-		console.log(email, password);
-
 		try {
-			const res = await instance.get("/");
-			console.log(res);
+			const res = await axios.post("http://localhost:5000/api/auth/login", {
+				email,
+				password,
+			});
+			console.log(res.data);
 		} catch (error) {
 			console.log(error);
 		}
