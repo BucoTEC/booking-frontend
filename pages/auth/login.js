@@ -1,7 +1,14 @@
 import React from "react";
 
+import Login from "../../ui/pageviews/Login";
+
 function LoginPage() {
-	return <div>LoginPage</div>;
+	return (
+		<>
+			<h1>Wellcome to the login page</h1>
+			<Login />
+		</>
+	);
 }
 
 export default LoginPage;
