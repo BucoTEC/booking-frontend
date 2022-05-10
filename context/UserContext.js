@@ -21,5 +21,3 @@ export const UserContextProvider = ({ children }) => {
 		</>
 	);
 };
-
-export default UserContext;

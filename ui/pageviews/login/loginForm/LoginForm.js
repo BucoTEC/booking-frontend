@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../../../context/UserContext";
 
 import cl from "./LoginForm.module.scss";
 
@@ -6,9 +7,10 @@ import instance from "../../../../api/axiosInstance";
 import axios from "axios";
 
 function LoginForm() {
+	const { currentUser, setCurrentUser } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
+	console.log(currentUser);
 	const emailHandler = (e) => {
 		setEmail(e.target.value);
 	};
