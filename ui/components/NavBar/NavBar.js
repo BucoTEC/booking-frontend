@@ -5,7 +5,11 @@ import { UserContext } from "../../../context/UserContext";
 import cl from "./NavBar.module.scss";
 
 function NavBar() {
-	const { currentUser } = useContext(UserContext);
+	const { currentUser, setCurrentUser } = useContext(UserContext);
+	console.log(currentUser);
+	const logOutHandler = () => {
+		setCurrentUser({});
+	};
 
 	return (
 		<div style={{ display: "flex", flexDirection: "row", width: "full" }}>
@@ -17,7 +21,7 @@ function NavBar() {
 				<Link href="/auth/register">REGISTER</Link>
 				<Link href="/bookings">BOOKINGS</Link>
 				<Link href="/profile">PROFILE</Link>
-				<span>LOG OUT</span>
+				<span onClick={logOutHandler}>LOG OUT</span>
 			</div>
 			<div className={currentUser ? cl.lampica : cl.zeleno}></div>
 		</div>
