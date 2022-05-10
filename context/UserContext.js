@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { createContext, useEffect, useReducer } from "react";
-
-// TODO check how to get local storege in a next js app
+import { createContext, useEffect } from "react";
 
 const getStorage = () => {
 	if (typeof window !== "undefined") {
-		// Perform localStorage action
 		const item = localStorage.getItem("key");
 		return JSON.parse(item);
 	}
