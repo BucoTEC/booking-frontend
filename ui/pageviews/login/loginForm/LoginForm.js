@@ -28,8 +28,8 @@ function LoginForm() {
 			console.log(error);
 		}
 
-		setEmail("");
-		setPassword("");
+		// setEmail("");
+		// setPassword("");
 	};
 	return (
 		<div className={cl.input_wrapper}>
