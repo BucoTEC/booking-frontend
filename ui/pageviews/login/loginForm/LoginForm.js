@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { UserContext } from "../../../../context/UserContext";
 
 import cl from "./LoginForm.module.scss";
@@ -9,7 +9,7 @@ import axios from "axios";
 // TODO fix axios instance on request
 
 function LoginForm() {
-	const { currentUser, setCurrentUser } = useContext(UserContext);
+	const { setCurrentUser } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [isLoading, setIsLoadin] = useState(false);
 	// const [err, setErr] = useState(null);
