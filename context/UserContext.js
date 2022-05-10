@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { createContext, useEffect, useReducer } from "react";
 
+// TODO check how to get local storege in a next js app
+
 const INITIAL_STATE = {
 	user: JSON.parse(localStorage.getItem("booking_user")) || null,
 };

@@ -6,6 +6,9 @@ import cl from "./LoginForm.module.scss";
 import instance from "../../../../api/axiosInstance";
 import axios from "axios";
 
+//TODO add user to context when login
+// TODO fix axios instance on request
+
 function LoginForm() {
 	const { currentUser, setCurrentUser } = useContext(UserContext);
 	const [email, setEmail] = useState("");
