@@ -3,19 +3,8 @@ import { createContext, useEffect, useReducer } from "react";
 
 // TODO check how to get local storege in a next js app
 
-const getStorage = () => {
-	if (typeof window !== "undefined") {
-		// Perform localStorage action
-		const item = localStorage.getItem("user");
-		if (!item) {
-			return null;
-		}
-		return JSON.parse(item);
-	}
-};
-
 const INITIAL_STATE = {
-	user: getStorage(),
+	user: "",
 };
 
 export const UserContext = createContext(INITIAL_STATE);
