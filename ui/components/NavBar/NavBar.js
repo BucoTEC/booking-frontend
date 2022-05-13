@@ -5,8 +5,7 @@ import { UserContext } from "../../../context/UserContext";
 import cl from "./NavBar.module.scss";
 
 function NavBar() {
-	const { currentUser, setCurrentUser } = useContext(UserContext);
-	console.log(currentUser);
+	// const { currentUser, setCurrentUser } = useContext(UserContext);
 	const logOutHandler = () => {
 		setCurrentUser({});
 	};
@@ -23,7 +22,7 @@ function NavBar() {
 				<Link href="/profile">PROFILE</Link>
 				<span onClick={logOutHandler}>LOG OUT</span>
 			</div>
-			<div className={currentUser ? cl.lampica : cl.zeleno}></div>
+			{/* <div className={currentUser ? cl.lampica : cl.zeleno}></div> */}
 		</div>
 	);
 }
