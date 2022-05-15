@@ -30,8 +30,12 @@ function LoginForm() {
 				email,
 				password,
 			});
-			setCurrentUser(res.data.userId);
-			console.log(currentUser);
+			setCurrentUser({
+				userId: res.data.userId,
+				isAdmin: res.data.isAdmin,
+				token: res.data.isAdmin,
+			});
+			console.log(res.data.userId);
 			setIsLoadin(false);
 		} catch (error) {
 			setIsLoadin(false);

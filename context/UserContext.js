@@ -1,7 +1,9 @@
 import React, { useState, useEffect, createContext } from "react";
 
 export const UserContext = createContext({
-	currentUser: "",
+	userId: "",
+	isAdmin: "",
+	token: "",
 	setCurrentUser: () => {},
 });
 
