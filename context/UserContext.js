@@ -18,7 +18,6 @@ export const UserContextProvider = ({ children }) => {
 		if (currentUser.userId) {
 			localStorage.setItem("current_user", JSON.stringify(currentUser.userId));
 		}
-		console.log(currentUser);
 	}, [currentUser.userId, currentUser, setCurrentUser]);
 
 	return (
