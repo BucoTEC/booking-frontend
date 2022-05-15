@@ -11,11 +11,16 @@ import { UserContextProvider } from "../context/UserContext.js";
 
 function MyApp({ Component, pageProps }) {
 	const r = useRouter();
+
 	useEffect(() => {
 		if (pageProps?.auth) {
 			r.push("/auth/login");
 		}
 	}, [pageProps?.auth, r]);
+
+	if (pageProps?.auth) {
+		return <div>Loading ...</div>;
+	}
 
 	return (
 		<>
