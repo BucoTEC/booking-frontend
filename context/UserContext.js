@@ -17,9 +17,10 @@ export const UserContextProvider = ({ children }) => {
 
 	//check for changes in current user state
 	useEffect(() => {
-		if (currentUser?.userId) {
-			localStorage.setItem("current_user", JSON.stringify(currentUser.userId));
+		if (currentUser) {
+			localStorage.setItem("current_user", JSON.stringify(currentUser));
 		}
+		console.log(currentUser);
 	}, [currentUser?.userId, currentUser, setCurrentUser]);
 
 	return (

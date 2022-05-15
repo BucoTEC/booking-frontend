@@ -33,9 +33,8 @@ function LoginForm() {
 			setCurrentUser({
 				userId: res.data.userId,
 				isAdmin: res.data.isAdmin,
-				token: res.data.isAdmin,
+				token: res.data.token,
 			});
-			console.log(res.data.userId);
 			setIsLoadin(false);
 		} catch (error) {
 			setIsLoadin(false);
