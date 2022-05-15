@@ -17,11 +17,15 @@ function NavBar() {
 				<Link href="/">HOME</Link>
 				<Link href="/about">ABOUTE</Link>
 				<Link href="/admin">ADMIN</Link>
-				<Link href="/auth/login">LOGIN</Link>
-				<Link href="/auth/register">REGISTER</Link>
+				{!currentUser && (
+					<>
+						<Link href="/auth/login">LOGIN</Link>
+						<Link href="/auth/register">REGISTER</Link>
+					</>
+				)}
 				<Link href="/bookings">BOOKINGS</Link>
 				<Link href="/profile">PROFILE</Link>
-				<span onClick={logOutHandler}>LOG OUT</span>
+				{currentUser && <span onClick={logOutHandler}>LOG OUT</span>}
 			</div>
 			{currentUser ? (
 				<div className={cl.zeleno}></div>
