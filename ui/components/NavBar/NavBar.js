@@ -9,8 +9,6 @@ function NavBar() {
 	const logOutHandler = () => {
 		setCurrentUser(null);
 		localStorage.setItem("current_user", JSON.stringify(null));
-
-		console.log(currentUser);
 	};
 
 	return (
@@ -25,7 +23,11 @@ function NavBar() {
 				<Link href="/profile">PROFILE</Link>
 				<span onClick={logOutHandler}>LOG OUT</span>
 			</div>
-			{/* <div className={currentUser ? cl.lampica : cl.zeleno}></div> */}
+			{currentUser ? (
+				<div className={cl.zeleno}></div>
+			) : (
+				<div className={cl.crveno}></div>
+			)}
 		</div>
 	);
 }
