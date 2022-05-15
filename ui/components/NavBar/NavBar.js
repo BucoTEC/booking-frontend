@@ -7,8 +7,10 @@ import cl from "./NavBar.module.scss";
 function NavBar() {
 	const { currentUser, setCurrentUser } = useContext(UserContext);
 	const logOutHandler = () => {
-		console.log(currentUser);
 		setCurrentUser(null);
+		localStorage.setItem("current_user", JSON.stringify(null));
+
+		console.log(currentUser);
 	};
 
 	return (
