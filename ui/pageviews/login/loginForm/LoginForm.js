@@ -9,7 +9,7 @@ import axios from "axios";
 // TODO fix axios instance on request
 
 function LoginForm() {
-	const { setCurrentUser } = useContext(UserContext);
+	const { setCurrentUser, currentUser } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [isLoading, setIsLoadin] = useState(false);
 	// const [err, setErr] = useState(null);
@@ -30,7 +30,8 @@ function LoginForm() {
 				email,
 				password,
 			});
-			setCurrentUser(res.data);
+			setCurrentUser(res.data.userId);
+			console.log(currentUser);
 			setIsLoadin(false);
 		} catch (error) {
 			setIsLoadin(false);

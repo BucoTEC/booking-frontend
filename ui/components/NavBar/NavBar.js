@@ -8,7 +8,7 @@ function NavBar() {
 	const { currentUser, setCurrentUser } = useContext(UserContext);
 	const logOutHandler = () => {
 		console.log(currentUser);
-		setCurrentUser({});
+		setCurrentUser(null);
 	};
 
 	return (

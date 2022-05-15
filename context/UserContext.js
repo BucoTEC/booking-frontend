@@ -11,14 +11,14 @@ export const UserContextProvider = ({ children }) => {
 	// initialize curretn user state
 	useEffect(() => {
 		setCurrentUser(JSON.parse(localStorage.getItem("current_user")));
-	}, [setCurrentUser]);
+	}, []);
 
 	//check for changes in current user state
 	useEffect(() => {
-		if (currentUser.userId) {
+		if (currentUser?.userId) {
 			localStorage.setItem("current_user", JSON.stringify(currentUser.userId));
 		}
-	}, [currentUser.userId, currentUser, setCurrentUser]);
+	}, [currentUser?.userId, currentUser, setCurrentUser]);
 
 	return (
 		<>
