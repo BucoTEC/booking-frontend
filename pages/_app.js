@@ -7,8 +7,8 @@ import { UserContextProvider } from "../context/UserContext.js";
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
-			<NavBar />
 			<UserContextProvider>
+				<NavBar />
 				<MainLayout>
 					<Component {...pageProps} />
 				</MainLayout>
