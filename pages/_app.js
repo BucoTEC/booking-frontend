@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import "../styles/globals.css";
@@ -9,8 +10,12 @@ import { UserContextProvider } from "../context/UserContext.js";
 // fix redirecting if not loged in
 
 function MyApp({ Component, pageProps }) {
-	if (pageProps?.auth) {
-	}
+	const r = useRouter();
+	useEffect(() => {
+		if (pageProps?.auth) {
+			r.push("/auth/login");
+		}
+	}, [pageProps?.auth, r]);
 
 	return (
 		<>
