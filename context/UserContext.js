@@ -7,8 +7,13 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState("");
 	useEffect(() => {
-		if (JSON.parse(localStorage.getItem("user"))) {
-			setCurrentUser(JSON.parse(localStorage.getItem("user")));
+		try {
+			const localUser = JSON.parse(localStorage.getItem("current_user"));
+			if (localUser) {
+				setCurrentUser(JSON.parse(localStorage.getItem("current_user")));
+			}
+		} catch (error) {
+			console.log(error);
 		}
 	}, []);
 
