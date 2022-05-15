@@ -5,8 +5,9 @@ import { UserContext } from "../../../context/UserContext";
 import cl from "./NavBar.module.scss";
 
 function NavBar() {
-	// const { currentUser, setCurrentUser } = useContext(UserContext);
+	const { currentUser, setCurrentUser } = useContext(UserContext);
 	const logOutHandler = () => {
+		console.log(currentUser);
 		setCurrentUser({});
 	};
 
