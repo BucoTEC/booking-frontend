@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import { useRouter } from "next/router";
+
 import { UserContext } from "../../../../context/UserContext";
 
 import cl from "./LoginForm.module.scss";
@@ -9,6 +11,7 @@ import axios from "axios";
 // TODO fix axios instance on request
 
 function LoginForm() {
+	const router = useRouter();
 	const { setCurrentUser, currentUser } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [isLoading, setIsLoadin] = useState(false);
@@ -36,6 +39,7 @@ function LoginForm() {
 				token: res.data.token,
 			});
 			setIsLoadin(false);
+			router.push("/");
 		} catch (error) {
 			setIsLoadin(false);
 			console.log(error);
