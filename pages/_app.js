@@ -7,11 +7,10 @@ import MainLayout from "../ui/components/mainLayout/MainLayout";
 
 import { UserContextProvider } from "../context/UserContext.js";
 
-// fix redirecting if not loged in
-
 function MyApp({ Component, pageProps }) {
 	const r = useRouter();
 
+	// auth checker
 	useEffect(() => {
 		if (pageProps?.auth) {
 			r.push("/auth/login");
