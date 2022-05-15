@@ -18,8 +18,10 @@ export const UserContextProvider = ({ children }) => {
 	}, []);
 
 	useEffect(() => {
-		localStorage.setItem("user", JSON.stringify(currentUser.userId));
-	}, [currentUser]);
+		if (currentUser.userId) {
+			localStorage.setItem("current_user", JSON.stringify(currentUser.userId));
+		}
+	}, [currentUser.userId]);
 
 	return (
 		<>
