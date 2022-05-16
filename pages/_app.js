@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useContext } from "react";
 
 import { UserContext } from "../context/UserContext.js";
 
@@ -11,18 +10,21 @@ import MainLayout from "../ui/components/mainLayout/MainLayout";
 import { UserContextProvider } from "../context/UserContext.js";
 
 function MyApp({ Component, pageProps }) {
-	const { currentUser } = useContext(UserContext);
-	console.log(currentUser);
+	const [user, setUser] = useState("");
 	const r = useRouter();
+
+	useEffect(() => {
+		setUser(JSON.parse(localStorage.getItem("current_user")));
+	}, []);
 
 	// auth checker
 	useEffect(() => {
-		if (pageProps?.auth && !currentUser) {
+		if (pageProps?.auth && !user) {
 			r.push("/auth/login");
 		}
-	}, [pageProps?.auth, currentUser, r]);
+	}, [pageProps?.auth, user, r]);
 
-	if (pageProps?.auth) {
+	if (pageProps?.auth && !user) {
 		return <div>Loading ...</div>;
 	}
 
