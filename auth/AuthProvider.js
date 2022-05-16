@@ -11,13 +11,15 @@ function AuthProvider({ pageProps, children }) {
 	useEffect(() => {
 		if (pageProps?.auth && !currentUser) {
 			r.push("/auth/login");
+		} else if (pageProps?.admin && !currentUser?.isAdmin) {
+			r.push("/");
 		}
-		if (pageProps?.admin && !currentUser.isAdmin) {
-			r.push("/auth/login");
-		}
-	}, [pageProps?.auth, pageProps?.admin, currentUser, currentUser.isAdmin, r]);
+	}, [pageProps?.auth, pageProps?.admin, currentUser, currentUser?.isAdmin, r]);
 
-	if (pageProps?.auth && !currentUser) {
+	if (
+		(pageProps?.auth && !currentUser) ||
+		(pageProps?.admin && !currentUser?.isAdmin)
+	) {
 		return <div>Loading ...</div>;
 	}
 
