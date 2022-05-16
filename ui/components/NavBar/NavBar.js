@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { UserContext } from "../../../context/UserContext";
+import { useRouter } from "next/router";
 
 import cl from "./NavBar.module.scss";
 
 function NavBar() {
 	const { currentUser, setCurrentUser } = useContext(UserContext);
+	const r = useRouter();
 	const logOutHandler = () => {
 		setCurrentUser(null);
 		localStorage.setItem("current_user", JSON.stringify(null));
+		r.push("/");
 	};
 
 	return (
