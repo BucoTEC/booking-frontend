@@ -12,7 +12,7 @@ import axios from "axios";
 
 function LoginForm() {
 	const router = useRouter();
-	const { setCurrentUser, currentUser } = useContext(UserContext);
+	const { setCurrentUser } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [isLoading, setIsLoadin] = useState(false);
 	// const [err, setErr] = useState(null);
