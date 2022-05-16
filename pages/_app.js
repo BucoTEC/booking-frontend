@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<UserContextProvider>
-				<AuthProvider component={Component} pageProps={pageProps}>
+				<AuthProvider pageProps={pageProps}>
 					<NavBar />
 					<MainLayout>
 						<Component {...pageProps} />
