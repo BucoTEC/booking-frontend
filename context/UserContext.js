@@ -26,11 +26,12 @@ export const UserContextProvider = ({ children }) => {
 	useEffect(() => {
 		if (currentUser) {
 			const time = new Date();
+			const expiry = time.setDate(time.getDate() + 2);
 			localStorage.setItem(
 				"current_user",
 				JSON.stringify({
 					currentUser,
-					expiry: time + 172800000, //   2 days in miliseconds
+					expiry, //   2 days in miliseconds
 				})
 			);
 		}
