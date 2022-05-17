@@ -10,7 +10,7 @@ function NavBar() {
 	const r = useRouter();
 	const logOutHandler = () => {
 		setCurrentUser(null);
-		localStorage.setItem("current_user", JSON.stringify(null));
+		localStorage.removeItem("current_user");
 		r.push("/");
 	};
 
