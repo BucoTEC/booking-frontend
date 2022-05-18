@@ -22,6 +22,7 @@ function CreateBooking() {
 			<div>
 				<DatePicker
 					showTimeSelect
+					inline
 					minDate={now}
 					maxDate={addDays(now, +14)}
 					timeFormat="HH:mm"
@@ -31,6 +32,7 @@ function CreateBooking() {
 					selected={startDate}
 					onChange={(date) => setStartDate(date)}
 				/>
+				<textarea rows="15" cols="37"></textarea>
 			</div>
 		</>
 	);
