@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import cl from "./createBookingPageView.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
 
 import DatePicker from "react-datepicker";
@@ -18,20 +19,21 @@ function CreateBookingPageView() {
 	};
 	return (
 		<div>
-			<h1>Add a booking</h1>
-			<div>
-				<DatePicker
-					showTimeSelect
-					inline
-					minDate={now}
-					maxDate={addDays(now, +14)}
-					timeFormat="HH:mm"
-					minTime={setHours(setMinutes(now, 0), 9)}
-					maxTime={setHours(setMinutes(now, 30), 18)}
-					filterDate={isWeekday}
-					selected={startDate}
-					onChange={(date) => setStartDate(date)}
-				/>
+			<div className={cl.omotac}>
+				<div className={cl.pic}>
+					<DatePicker
+						showTimeSelect
+						inline
+						minDate={now}
+						maxDate={addDays(now, +14)}
+						timeFormat="HH:mm"
+						minTime={setHours(setMinutes(now, 0), 9)}
+						maxTime={setHours(setMinutes(now, 30), 18)}
+						filterDate={isWeekday}
+						selected={startDate}
+						onChange={(date) => setStartDate(date)}
+					/>
+				</div>
 				<textarea rows="15" cols="37"></textarea>
 				<select name="num" id="num">
 					<option value="1">1</option>
