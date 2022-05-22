@@ -9,6 +9,8 @@ import { setHours, setMinutes, addDays, getDay } from "date-fns";
 function CreateBookingPageView() {
 	const now = new Date();
 	const [startDate, setStartDate] = useState(now);
+	const [textMessage, setTextMessage] = useState("");
+	const [numOfCustomers, setNumOfCustomers] = useState("");
 
 	const isWeekday = (date) => {
 		const day = getDay(date);
@@ -17,6 +19,11 @@ function CreateBookingPageView() {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+		console.log({
+			date: startDate,
+			msg: textMessage,
+			num: numOfCustomers,
+		});
 	};
 	return (
 		<>
@@ -35,8 +42,18 @@ function CreateBookingPageView() {
 					onChange={(date) => setStartDate(date)}
 				/>
 				<div className={cl.omotac}>
-					<textarea rows="15" cols="37" required></textarea>
-					<select name="num" id="num" required>
+					<textarea
+						rows="15"
+						cols="37"
+						required
+						onChange={(e) => setTextMessage(e.target.value)}
+					></textarea>
+					<select
+						name="num"
+						id="num"
+						required
+						onChange={(e) => setNumOfCustomers(e.target.value)}
+					>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
