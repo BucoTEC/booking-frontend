@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import cl from "./createBookingPageView.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
@@ -6,8 +6,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { setHours, setMinutes, addDays, getDay } from "date-fns";
 
+import { UserContext } from "../../../../context/UserContext";
+
+import instance from "../../../../api/axiosInstance";
+
+// TODO check if there is way to remove booked time from selection
+
 function CreateBookingPageView() {
 	const now = new Date();
+	const { user } = useContext(UserContext);
 	const [startDate, setStartDate] = useState(now);
 	const [textMessage, setTextMessage] = useState("");
 	const [numOfCustomers, setNumOfCustomers] = useState("");
@@ -17,13 +24,24 @@ function CreateBookingPageView() {
 		return day !== 0;
 	};
 
-	const submitHandler = (e) => {
+	const submitHandler = async (e) => {
 		e.preventDefault();
 		console.log({
 			date: startDate,
 			msg: textMessage,
 			num: numOfCustomers,
 		});
+		try {
+			const res = await instance.post("/bookings", {
+				user: user.userId,
+				date: startDate,
+				comment: textMessage,
+				amount: numOfCustomers,
+			});
+			console.log(res);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 	return (
 		<>
