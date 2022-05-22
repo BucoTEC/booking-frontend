@@ -14,10 +14,10 @@ import instance from "../../../../api/axiosInstance";
 
 function CreateBookingPageView() {
 	const now = new Date();
-	const { user } = useContext(UserContext);
+	const { currentUser } = useContext(UserContext);
 	const [startDate, setStartDate] = useState(now);
 	const [textMessage, setTextMessage] = useState("");
-	const [numOfCustomers, setNumOfCustomers] = useState("");
+	const [numOfCustomers, setNumOfCustomers] = useState(1);
 
 	const isWeekday = (date) => {
 		const day = getDay(date);
@@ -26,18 +26,26 @@ function CreateBookingPageView() {
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
+		console.log(currentUser.userId);
 		console.log({
 			date: startDate,
 			msg: textMessage,
 			num: numOfCustomers,
 		});
 		try {
-			const res = await instance.post("/bookings", {
-				user: user.userId,
-				date: startDate,
-				comment: textMessage,
-				amount: numOfCustomers,
-			});
+			const res = await instance.post(
+				"/bookings",
+				{
+					date: startDate,
+					comment: textMessage,
+					amount: Number(numOfCustomers),
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${currentUser.token}`,
+					},
+				}
+			);
 			console.log(res);
 		} catch (err) {
 			console.log(err);
