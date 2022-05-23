@@ -1,9 +1,13 @@
-import React from "react";
-
+import React, { useContext } from "react";
 import Link from "next/link";
+
+import { UserContext } from "../../context/UserContext";
 import AllBookings from "../../ui/pageviews/bookings/allBookings";
 
 function Bookings() {
+	const { currentUser } = useContext(UserContext);
+
+	console.log(currentUser);
 	return (
 		<div>
 			<h1>This is the bookings page</h1>
