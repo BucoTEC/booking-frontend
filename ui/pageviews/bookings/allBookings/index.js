@@ -1,7 +1,12 @@
 import React from "react";
+import BookingList from "./BookingList";
 
 function AllBookings() {
-	return <div>AllBookings</div>;
+	return (
+		<>
+			<BookingList />
+		</>
+	);
 }
 
 export default AllBookings;

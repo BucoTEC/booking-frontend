@@ -7,9 +7,9 @@ function Bookings() {
 	return (
 		<div>
 			<h1>This is the bookings page</h1>
-			<button style={{ padding: "0.5rem 1rem" }}>
-				<Link href="/bookings/create">Create a booking</Link>
-			</button>
+			<Link href="/bookings/create">
+				<button style={{ padding: "0.5rem 1rem" }}>Create a booking</button>
+			</Link>
 			<AllBookings />
 		</div>
 	);
