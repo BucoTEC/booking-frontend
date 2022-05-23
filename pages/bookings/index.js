@@ -1,11 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 
 import { UserContext } from "../../context/UserContext";
 import AllBookings from "../../ui/pageviews/bookings/allBookings";
+import instance from "../../api/axiosInstance";
 
 function Bookings() {
 	const { currentUser } = useContext(UserContext);
+
+	useEffect(() => {
+		const apiCall = async () => {
+			const res = instance.get("/test");
+			console.log(res);
+		};
+	}, []);
 
 	console.log(currentUser);
 	return (
