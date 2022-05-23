@@ -9,7 +9,13 @@ export const UserContext = createContext({
 
 export const UserContextProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState("");
-
+	const value = React.useMemo(
+		() => ({
+			currentUser,
+			setCurrentUser,
+		}),
+		[currentUser]
+	);
 	// initialize curretn user state
 	useEffect(() => {
 		const data = JSON.parse(localStorage.getItem("current_user"));
@@ -39,9 +45,7 @@ export const UserContextProvider = ({ children }) => {
 
 	return (
 		<>
-			<UserContext.Provider value={{ currentUser, setCurrentUser }}>
-				{children}
-			</UserContext.Provider>
+			<UserContext.Provider value={value}>{children}</UserContext.Provider>
 		</>
 	);
 };
