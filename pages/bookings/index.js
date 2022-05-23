@@ -11,18 +11,18 @@ function Bookings() {
 	useEffect(() => {
 		const apiCall = async () => {
 			try {
-				const res = await instance.get("/bookings", {
+				const { data } = await instance.get("/bookings", {
 					headers: {
 						Authorization: `Bearer ${currentUser.token}`,
 					},
 				});
-				console.log(res);
+				console.log(data);
 			} catch (err) {
 				console.log(err);
 			}
 		};
 		apiCall();
-	}, []);
+	}, [currentUser?.token]);
 
 	return (
 		<div>
