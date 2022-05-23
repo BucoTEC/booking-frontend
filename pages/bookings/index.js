@@ -29,7 +29,7 @@ function Bookings() {
 			}
 		};
 		apiCall();
-	}, [currentUser?.token]);
+	}, [currentUser]);
 
 	if (loading) {
 		return <h1>...Loading</h1>;
