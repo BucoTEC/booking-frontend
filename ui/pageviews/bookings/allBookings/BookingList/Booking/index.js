@@ -1,8 +1,7 @@
 import React from "react";
 
 function Booking({ data }) {
-	console.log(data);
-	return <div>{data?.status}</div>;
+	return <div>{data?._id}</div>;
 }
 
 export default Booking;

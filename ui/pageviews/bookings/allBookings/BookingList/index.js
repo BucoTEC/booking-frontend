@@ -6,7 +6,7 @@ function BookingList({ bookings }) {
 		<>
 			<h1>this is booking list component</h1>
 			{bookings?.map((booking) => (
-				<Booking key={booking.id} data={booking} />
+				<Booking key={booking._id} data={booking} />
 			))}
 		</>
 	);
