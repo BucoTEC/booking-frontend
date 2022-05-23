@@ -1,11 +1,13 @@
 import React from "react";
 import Booking from "./Booking";
 
-function BookingList() {
+function BookingList({ bookings }) {
 	return (
 		<>
 			<h1>this is booking list component</h1>
-			<Booking />
+			{bookings?.map((booking) => (
+				<Booking key={booking.id} data={booking} />
+			))}
 		</>
 	);
 }

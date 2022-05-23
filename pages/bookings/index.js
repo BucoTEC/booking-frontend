@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 
 import { UserContext } from "../../context/UserContext";
@@ -7,22 +7,37 @@ import instance from "../../api/axiosInstance";
 
 function Bookings() {
 	const { currentUser } = useContext(UserContext);
+	const [allBookings, setAllBookings] = useState([]);
+	const [loading, setLoadin] = useState(false);
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
 		const apiCall = async () => {
 			try {
+				setLoadin((prev) => !prev);
 				const { data } = await instance.get("/bookings", {
 					headers: {
 						Authorization: `Bearer ${currentUser.token}`,
 					},
 				});
-				console.log(data);
+				setAllBookings(data?.data);
+				setLoadin((prev) => !prev);
 			} catch (err) {
+				setLoadin((prev) => !prev);
+				setError(true);
 				console.log(err);
 			}
 		};
 		apiCall();
 	}, [currentUser?.token]);
+
+	if (loading) {
+		return <h1>...Loading</h1>;
+	}
+
+	if (error) {
+		return <h1>Ups there was an error</h1>;
+	}
 
 	return (
 		<div>
@@ -30,7 +45,7 @@ function Bookings() {
 			<Link href="/bookings/create">
 				<button style={{ padding: "0.5rem 1rem" }}>Create a booking</button>
 			</Link>
-			<AllBookings />
+			<AllBookings bookings={allBookings} />
 		</div>
 	);
 }

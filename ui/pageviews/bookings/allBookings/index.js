@@ -1,10 +1,10 @@
 import React from "react";
 import BookingList from "./BookingList";
 
-function AllBookings() {
+function AllBookings({ bookings }) {
 	return (
 		<>
-			<BookingList />
+			<BookingList bookings={bookings} />
 		</>
 	);
 }
