@@ -10,12 +10,20 @@ function Bookings() {
 
 	useEffect(() => {
 		const apiCall = async () => {
-			const res = instance.get("/test");
-			console.log(res);
+			try {
+				const res = await instance.get("/bookings", {
+					headers: {
+						Authorization: `Bearer ${currentUser.token}`,
+					},
+				});
+				console.log(res);
+			} catch (err) {
+				console.log(err);
+			}
 		};
+		apiCall();
 	}, []);
 
-	console.log(currentUser);
 	return (
 		<div>
 			<h1>This is the bookings page</h1>
