@@ -1,6 +1,7 @@
 import React from "react";
 
 import Link from "next/link";
+import AllBookings from "../../ui/pageviews/bookings/allBookings";
 
 function Bookings() {
 	return (
@@ -9,6 +10,7 @@ function Bookings() {
 			<button style={{ padding: "0.5rem 1rem" }}>
 				<Link href="/bookings/create">Create a booking</Link>
 			</button>
+			<AllBookings />
 		</div>
 	);
 }
