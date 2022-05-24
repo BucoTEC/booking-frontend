@@ -9,22 +9,12 @@ function AuthProvider({ pageProps, children }) {
 
 	// auth checker
 	useEffect(() => {
-		const check = () => {
-			if (!currentUser?.userId && pageProps?.auth) {
-				router.push("/auth/login");
-			} else if (pageProps?.admin && !currentUser?.isAdmin) {
-				router.push("/");
-			}
-		};
-
-		currentUser && check();
-	}, [
-		pageProps?.auth,
-		pageProps?.admin,
-		currentUser,
-		currentUser?.isAdmin,
-		router,
-	]);
+		if (!currentUser?.userId && pageProps?.auth) {
+			router.push("/auth/login");
+		} else if (pageProps?.admin && !currentUser?.isAdmin) {
+			router.push("/");
+		}
+	}, []);
 
 	if (
 		(pageProps?.auth && !currentUser) ||
