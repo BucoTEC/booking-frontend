@@ -52,8 +52,8 @@ function Bookings() {
 
 export default Bookings;
 
-// export async function getStaticProps() {
-// 	return {
-// 		props: { auth: true }, // will be passed to the page component as props
-// 	};
-// }
+export async function getStaticProps() {
+	return {
+		props: { auth: true }, // will be passed to the page component as props
+	};
+}

@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useRouter } from "next/router";
 
 import { UserContext } from "../context/UserContext";
@@ -6,21 +6,32 @@ import { UserContext } from "../context/UserContext";
 function AuthProvider({ pageProps, children }) {
 	const router = useRouter();
 	const { currentUser } = useContext(UserContext);
+	const [loading, setLoading] = useState(true);
 
 	// auth checker
+	// useEffect(() => {
+	// 	if (!currentUser?.userId && pageProps?.auth) {
+	// 		return <h1>loading</h1>;
+	// 	} else if (pageProps?.admin && !currentUser?.isAdmin) {
+	// 		return <h1>loading</h1>;
+	// 	}
+	// }, [
+	// 	pageProps?.auth,
+	// 	pageProps?.admin,
+	// 	currentUser,
+	// 	currentUser?.isAdmin,
+	// 	router,
+	// 	pageProps,
+	// ]);
 	useEffect(() => {
-		if (!currentUser?.userId && pageProps?.auth) {
-			router.push("/auth/login");
-		} else if (pageProps?.admin && !currentUser?.isAdmin) {
-			router.push("/");
-		}
+		setLoading(false);
 	}, []);
 
 	if (
 		(pageProps?.auth && !currentUser) ||
 		(pageProps?.admin && !currentUser?.isAdmin)
 	) {
-		return <div>Loading ...</div>;
+		return <div>{loading ? <h1> ... loading</h1> : <h1>Forbiden</h1>}</div>;
 	}
 
 	return <div>{children}</div>;
