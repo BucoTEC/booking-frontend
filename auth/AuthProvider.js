@@ -1,6 +1,8 @@
 import { useEffect, useContext, useState } from "react";
 import { useRouter } from "next/router";
 
+import cl from "./AuthProvider.module.scss";
+
 import { UserContext } from "../context/UserContext";
 
 function AuthProvider({ pageProps, children }) {
@@ -36,10 +38,9 @@ function AuthProvider({ pageProps, children }) {
 				{loading ? (
 					<h1> ... loading</h1>
 				) : (
-					<>
-						<h1>Forbiden</h1>
-						<button onClick={() => router.push("/auth/login")}>login</button>
-					</>
+					<div className={cl.redirect}>
+						{setTimeout(() => router.push("/auth/login"), 1)}
+					</div>
 				)}
 			</div>
 		);
