@@ -31,7 +31,18 @@ function AuthProvider({ pageProps, children }) {
 		(pageProps?.auth && !currentUser) ||
 		(pageProps?.admin && !currentUser?.isAdmin)
 	) {
-		return <div>{loading ? <h1> ... loading</h1> : <h1>Forbiden</h1>}</div>;
+		return (
+			<div>
+				{loading ? (
+					<h1> ... loading</h1>
+				) : (
+					<>
+						<h1>Forbiden</h1>
+						<button onClick={() => router.push("/auth/login")}>login</button>
+					</>
+				)}
+			</div>
+		);
 	}
 
 	return <div>{children}</div>;
