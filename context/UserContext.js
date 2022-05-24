@@ -41,7 +41,7 @@ export const UserContextProvider = ({ children }) => {
 				})
 			);
 		}
-	}, [currentUser?.userId, currentUser, setCurrentUser]);
+	}, [currentUser, setCurrentUser]);
 
 	return (
 		<>
