@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { useRouter } from "next/router";
 
+import instance from "../../../../api/axiosInstance";
+
 import cl from "./RegisterForm.module.scss";
 
 function RegisterForm() {
@@ -29,7 +31,7 @@ function RegisterForm() {
 	const registerHandler = async () => {
 		try {
 			setIsLoadin(true);
-			const res = await axios.post("http://localhost:5000/api/auth/login", {
+			await instance.post("http://localhost:5000/api/auth/login", {
 				username,
 				email,
 				password,
