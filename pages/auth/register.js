@@ -1,7 +1,13 @@
 import React from "react";
 
+import RegisterView from "../../ui/pageviews/register";
+
 function Register() {
-	return <div>Register</div>;
+	return (
+		<>
+			<RegisterView />
+		</>
+	);
 }
 
 export default Register;

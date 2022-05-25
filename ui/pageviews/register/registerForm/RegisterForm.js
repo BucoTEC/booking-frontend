@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+
+import { useRouter } from "next/router";
+
+import { UserContext } from "../../../../context/UserContext";
+
 import cl from "./RegisterForm.module.scss";
 
 function RegisterForm() {
