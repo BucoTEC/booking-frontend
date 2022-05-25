@@ -6,9 +6,6 @@ import { UserContext } from "../../../../context/UserContext";
 import cl from "./LoginForm.module.scss";
 
 import instance from "../../../../api/axiosInstance";
-import axios from "axios";
-
-// TODO fix axios instance on request
 
 function LoginForm() {
 	const router = useRouter();
@@ -29,7 +26,7 @@ function LoginForm() {
 	const submitHandler = async () => {
 		try {
 			setIsLoadin(true);
-			const res = await axios.post("http://localhost:5000/api/auth/login", {
+			const res = await instance.post("/auth/login", {
 				email,
 				password,
 			});
