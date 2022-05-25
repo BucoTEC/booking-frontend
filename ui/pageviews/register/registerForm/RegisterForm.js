@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { useRouter } from "next/router";
 
+import { ToastContainer, toast } from "react-toastify";
+
 import instance from "../../../../api/axiosInstance";
 
 import cl from "./RegisterForm.module.scss";
@@ -31,25 +33,26 @@ function RegisterForm() {
 	const registerHandler = async () => {
 		try {
 			setIsLoadin(true);
-			await instance.post("http://localhost:5000/api/auth/login", {
+			await instance.post("/auth/register", {
 				username,
 				email,
 				password,
 			});
 
 			setIsLoadin(false);
-			router.push("/");
+			toast.success("success");
 		} catch (error) {
 			setIsLoadin(false);
 			console.log(error);
+			toast("fail");
 		}
 
 		// setEmail("");
 		// setPassword("");
 	};
 	return (
-		<div className={cl.input_wrapper}>
-			<h1 className={cl.header}>Register</h1>
+		<div className={cl.input_wrapp}>
+			<h1 className={cl.head}>Register</h1>
 			{isLoading ? (
 				<h1>Loading ...</h1>
 			) : (
@@ -82,6 +85,7 @@ function RegisterForm() {
 						min="3"
 					/>
 					<button onClick={registerHandler}>Register</button>
+					<button onClick={() => toast.success("test")}>test</button>
 				</>
 			)}
 		</div>
