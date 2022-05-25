@@ -23,7 +23,7 @@ function LoginForm() {
 		setPassword(e.target.value);
 	};
 
-	const submitHandler = async () => {
+	const loginHandler = async () => {
 		try {
 			setIsLoadin(true);
 			const res = await instance.post("/auth/login", {
@@ -71,7 +71,7 @@ function LoginForm() {
 						required
 						min="3"
 					/>
-					<button onClick={submitHandler}>Login</button>
+					<button onClick={loginHandler}>Login</button>
 				</>
 			)}
 		</div>
