@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useRouter } from "next/router";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import instance from "../../../../api/axiosInstance";
 
@@ -40,7 +40,15 @@ function RegisterForm() {
 			});
 
 			setIsLoadin(false);
-			toast.success("success");
+			toast.success("success", {
+				position: "bottom-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		} catch (error) {
 			setIsLoadin(false);
 			console.log(error);
@@ -85,7 +93,6 @@ function RegisterForm() {
 						min="3"
 					/>
 					<button onClick={registerHandler}>Register</button>
-					<button onClick={() => toast.success("test")}>test</button>
 				</>
 			)}
 		</div>
