@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import cl from "./Booking.module.scss";
+import cl from "./BookingCard.module.scss";
 
-function Booking({ data }) {
+function BookingCard({ data }) {
 	return (
 		<div className={cl.bookingWrapper}>
 			<div>
@@ -18,4 +18,4 @@ function Booking({ data }) {
 	);
 }
 
-export default Booking;
+export default BookingCard;
