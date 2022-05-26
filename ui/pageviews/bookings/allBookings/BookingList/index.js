@@ -1,12 +1,12 @@
 import React from "react";
-import Booking from "./Booking";
+import BookingCard from "../../../../components/BookingCard";
 
 function BookingList({ bookings }) {
 	return (
 		<>
 			<h1>this is booking list component</h1>
 			{bookings?.map((booking) => (
-				<Booking key={booking._id} data={booking} />
+				<BookingCard key={booking._id} data={booking} />
 			))}
 		</>
 	);
