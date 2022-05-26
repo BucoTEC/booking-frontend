@@ -1,8 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
+
+import useLogin from "../../../../api/calls/auth/useLogin";
 
 import cl from "./LoginForm.module.scss";
 
 function LoginForm() {
+	const { isLoading, login } = useLogin({ email, password });
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const emailHandler = (e) => {
@@ -14,6 +17,7 @@ function LoginForm() {
 	};
 
 	const loginHandler = () => {
+		login();
 		// setEmail("");
 		// setPassword("");
 	};
