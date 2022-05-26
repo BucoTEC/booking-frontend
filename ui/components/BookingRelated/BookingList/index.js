@@ -1,5 +1,5 @@
 import React from "react";
-import BookingCard from "../../../../components/BookingCard";
+import BookingCard from "../BookingCard";
 
 function BookingList({ bookings }) {
 	return (
