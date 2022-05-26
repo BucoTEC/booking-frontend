@@ -5,9 +5,9 @@ import useLogin from "../../../../api/calls/auth/useLogin";
 import cl from "./LoginForm.module.scss";
 
 function LoginForm() {
-	const { isLoading, login } = useLogin({ email, password });
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const { isLoading, login } = useLogin(email, password);
 	const emailHandler = (e) => {
 		setEmail(e.target.value);
 	};

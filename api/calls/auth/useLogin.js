@@ -4,7 +4,9 @@ import { useRouter } from "next/router";
 
 import { UserContext } from "../../../context/UserContext";
 
-function useLogin({ email, password }) {
+import instance from "../../axiosInstance";
+
+function useLogin(email, password) {
 	const router = useRouter();
 	const { setCurrentUser } = useContext(UserContext);
 	const [isLoading, setIsLoadin] = useState(false);
