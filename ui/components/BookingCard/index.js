@@ -11,8 +11,9 @@ function BookingCard({ data }) {
 				{data.date}
 			</div>
 			<div>
-				<Link></Link>
-				<button>view</button>
+				<Link href={`/bookings/${data._id}`}>
+					<button>view</button>
+				</Link>
 			</div>
 		</div>
 	);
