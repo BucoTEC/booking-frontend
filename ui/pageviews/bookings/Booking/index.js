@@ -10,6 +10,10 @@ function Booking() {
 		<div className={cl.bookingWrapper}>
 			<h1>single booking</h1>
 			<h3>{router.query.id}</h3>
+			<div>
+				<button>edit booking</button>
+				<button>delete booking</button>
+			</div>
 		</div>
 	);
 }
