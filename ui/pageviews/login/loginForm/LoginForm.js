@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import cl from "./LoginForm.module.scss";
 
 import useLogin from "../../../../api/calls/auth/useLogin";
-
-import cl from "./LoginForm.module.scss";
 
 function LoginForm() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { isLoading, login } = useLogin(email, password);
+
 	const emailHandler = (e) => {
 		setEmail(e.target.value);
 	};
@@ -18,8 +18,8 @@ function LoginForm() {
 
 	const loginHandler = () => {
 		login();
-		// setEmail("");
-		// setPassword("");
+		setEmail("");
+		setPassword("");
 	};
 
 	return (
