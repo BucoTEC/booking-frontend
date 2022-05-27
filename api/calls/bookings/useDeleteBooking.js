@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 
 import { UserContext } from "../../../context/UserContext";
 
+import instance from "../../axiosInstance";
+
 function useDeleteBooking(data) {
 	const { id } = data;
 	const [isLoading, setIsLoading] = useState(false);
