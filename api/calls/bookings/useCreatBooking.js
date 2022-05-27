@@ -1,6 +1,12 @@
 import { useState, useContext } from "react";
 
+import { UserContext } from "../../../context/UserContext";
+
+import instance from "../../axiosInstance";
+
 function useCreatBooking(data) {
+	const { startDate, textMessage, numOfCustomers } = data;
+
 	const [isLoading, setIsLoading] = useState(false);
 	const { currentUser } = useContext(UserContext);
 
