@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 import instance from "../../axiosInstance";
-import { toast } from "react-toastify";
 
 function useRegister(data) {
 	const { username, email, password } = data;
@@ -29,7 +29,15 @@ function useRegister(data) {
 		} catch (error) {
 			setIsLoadin(false);
 			console.log(error);
-			toast("fail");
+			toast.error("fail", {
+				position: "bottom-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		}
 	};
 	return {

@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { toast } from "react-toastify";
 
 import { UserContext } from "../../../context/UserContext";
 
@@ -28,9 +29,27 @@ function useCreatBooking(data) {
 			);
 			console.log(res);
 			setIsLoading(false);
+			toast.success("success", {
+				position: "bottom-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		} catch (err) {
 			setIsLoading(false);
 			console.log(err);
+			toast.error("fail", {
+				position: "bottom-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		}
 	};
 	return { createBooking, isLoading };
