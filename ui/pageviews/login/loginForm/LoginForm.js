@@ -8,14 +8,6 @@ function LoginForm() {
 	const [password, setPassword] = useState("");
 	const { isLoading, login } = useLogin({ email, password });
 
-	const emailHandler = (e) => {
-		setEmail(e.target.value);
-	};
-
-	const passwordHandler = (e) => {
-		setPassword(e.target.value);
-	};
-
 	const loginHandler = () => {
 		login();
 		setEmail("");
@@ -34,7 +26,7 @@ function LoginForm() {
 						name="email"
 						placeholder="email"
 						value={email}
-						onChange={emailHandler}
+						onChange={(e) => setEmail(e.target.value)}
 						required
 						min="3"
 					/>
@@ -43,7 +35,9 @@ function LoginForm() {
 						name="password"
 						placeholder="password"
 						value={password}
-						onChange={passwordHandler}
+						onChange={(e) => {
+							setPassword(e.target.value);
+						}}
 						required
 						min="3"
 					/>
