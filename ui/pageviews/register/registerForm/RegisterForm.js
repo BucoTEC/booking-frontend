@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { useRouter } from "next/router";
-
 import { toast } from "react-toastify";
 
 import instance from "../../../../api/axiosInstance";
@@ -9,11 +7,9 @@ import instance from "../../../../api/axiosInstance";
 import cl from "./RegisterForm.module.scss";
 
 function RegisterForm() {
-	const router = useRouter();
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 
-	const [isLoading, setIsLoadin] = useState(false);
 	// const [err, setErr] = useState(null);
 
 	const [password, setPassword] = useState("");
@@ -31,30 +27,6 @@ function RegisterForm() {
 	};
 
 	const registerHandler = async () => {
-		try {
-			setIsLoadin(true);
-			await instance.post("/auth/register", {
-				username,
-				email,
-				password,
-			});
-
-			setIsLoadin(false);
-			toast.success("success", {
-				position: "bottom-center",
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-			});
-		} catch (error) {
-			setIsLoadin(false);
-			console.log(error);
-			toast("fail");
-		}
-
 		// setEmail("");
 		// setPassword("");
 	};
