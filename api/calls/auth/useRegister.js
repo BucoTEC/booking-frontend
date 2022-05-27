@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-function useRegister() {
+import instance from "../../axiosInstance";
+import { toast } from "react-toastify";
+
+function useRegister(data) {
+	const { username, email, password } = data;
 	const [isLoading, setIsLoadin] = useState(false);
 
 	const register = async () => {

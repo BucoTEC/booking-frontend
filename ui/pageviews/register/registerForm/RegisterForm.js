@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 
-import { toast } from "react-toastify";
-
-import instance from "../../../../api/axiosInstance";
-
 import cl from "./RegisterForm.module.scss";
 
+import useRegister from "../../../../api/calls/auth/useRegister";
+
 function RegisterForm() {
-	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
-
-	// const [err, setErr] = useState(null);
-
+	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const { register, isLoading } = useRegister({ username, email, password });
 
 	const usernameHandler = (e) => {
 		setUsername(e.target.value);
@@ -26,9 +22,8 @@ function RegisterForm() {
 		setPassword(e.target.value);
 	};
 
-	const registerHandler = async () => {
-		// setEmail("");
-		// setPassword("");
+	const registerHandler = () => {
+		register();
 	};
 	return (
 		<div className={cl.input_wrapp}>
