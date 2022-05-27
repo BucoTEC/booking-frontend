@@ -21,7 +21,7 @@ function useDeleteBooking(data) {
 			setIsLoading(false);
 			toast.success("successfuly deleted booking", {
 				position: "bottom-center",
-				autoClose: 3000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
@@ -33,7 +33,7 @@ function useDeleteBooking(data) {
 			console.log(err);
 			toast.error("fail", {
 				position: "bottom-center",
-				autoClose: 3000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,

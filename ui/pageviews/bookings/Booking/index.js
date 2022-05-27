@@ -10,6 +10,11 @@ function Booking() {
 	const { id } = router.query;
 	const { deleteBooking, isLoading } = useDeleteBooking({ id });
 
+	const deleteHandler = () => {
+		deleteBooking();
+		router.push("/bookings");
+	};
+
 	return (
 		<>
 			{isLoading ? (
@@ -20,7 +25,7 @@ function Booking() {
 					<h3>{router.query.id}</h3>
 					<div>
 						<button>edit booking</button>
-						<button onClick={() => deleteBooking()}>delete booking</button>
+						<button onClick={deleteHandler}>delete booking</button>
 					</div>
 				</div>
 			)}

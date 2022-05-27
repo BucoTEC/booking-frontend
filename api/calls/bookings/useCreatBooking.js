@@ -31,7 +31,7 @@ function useCreatBooking(data) {
 			setIsLoading(false);
 			toast.success("success", {
 				position: "bottom-center",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
@@ -43,7 +43,7 @@ function useCreatBooking(data) {
 			console.log(err);
 			toast.error("fail", {
 				position: "bottom-center",
-				autoClose: 5000,
+				autoClose: 2000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
