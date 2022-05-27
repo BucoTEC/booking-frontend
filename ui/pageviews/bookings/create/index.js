@@ -14,7 +14,6 @@ import instance from "../../../../api/axiosInstance";
 
 function CreateBookingPageView() {
 	const now = new Date();
-	const { currentUser } = useContext(UserContext);
 	const [startDate, setStartDate] = useState(now);
 	const [textMessage, setTextMessage] = useState("");
 	const [numOfCustomers, setNumOfCustomers] = useState(1);
@@ -24,32 +23,8 @@ function CreateBookingPageView() {
 		return day !== 0;
 	};
 
-	const submitHandler = async (e) => {
+	const submitHandler = (e) => {
 		e.preventDefault();
-		console.log(currentUser.userId);
-		console.log({
-			date: startDate,
-			msg: textMessage,
-			num: numOfCustomers,
-		});
-		try {
-			const res = await instance.post(
-				"/bookings",
-				{
-					date: startDate,
-					comment: textMessage,
-					amount: Number(numOfCustomers),
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${currentUser.token}`,
-					},
-				}
-			);
-			console.log(res);
-		} catch (err) {
-			console.log(err);
-		}
 	};
 	return (
 		<>
