@@ -10,21 +10,10 @@ function RegisterForm() {
 	const [password, setPassword] = useState("");
 	const { register, isLoading } = useRegister({ username, email, password });
 
-	const usernameHandler = (e) => {
-		setUsername(e.target.value);
-	};
-
-	const emailHandler = (e) => {
-		setEmail(e.target.value);
-	};
-
-	const passwordHandler = (e) => {
-		setPassword(e.target.value);
-	};
-
 	const registerHandler = () => {
 		register();
 	};
+
 	return (
 		<div className={cl.input_wrapp}>
 			<h1 className={cl.head}>Register</h1>
@@ -37,7 +26,9 @@ function RegisterForm() {
 						name="username"
 						placeholder="username"
 						value={username}
-						onChange={usernameHandler}
+						onChange={(e) => {
+							setUsername(e.target.value);
+						}}
 						required
 						min="3"
 					/>
@@ -46,7 +37,9 @@ function RegisterForm() {
 						name="email"
 						placeholder="email"
 						value={email}
-						onChange={emailHandler}
+						onChange={(e) => {
+							setEmail(e.target.value);
+						}}
 						required
 						min="3"
 					/>
@@ -55,7 +48,9 @@ function RegisterForm() {
 						name="password"
 						placeholder="password"
 						value={password}
-						onChange={passwordHandler}
+						onChange={(e) => {
+							setPassword(e.target.value);
+						}}
 						required
 						min="3"
 					/>
