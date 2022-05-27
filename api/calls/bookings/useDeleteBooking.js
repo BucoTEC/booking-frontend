@@ -5,11 +5,13 @@ import { UserContext } from "../../../context/UserContext";
 
 import instance from "../../axiosInstance";
 
+// TODO fix delete bookogn ownership check context
+
 function useDeleteBooking(data) {
 	const { id } = data;
 	const [isLoading, setIsLoading] = useState(false);
 	const { currentUser } = useContext(UserContext);
-
+	console.log(id);
 	const deleteBooking = async () => {
 		try {
 			setIsLoading(true);
