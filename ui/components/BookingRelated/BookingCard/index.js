@@ -7,7 +7,8 @@ function BookingCard({ data }) {
 	return (
 		<div className={cl.bookingWrapper}>
 			<div>
-				<h3>Date</h3>
+				<h3>{data.comment}</h3>
+				<h4>Date</h4>
 				{data.date}
 			</div>
 			<div>
