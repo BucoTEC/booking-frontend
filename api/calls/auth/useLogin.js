@@ -6,7 +6,8 @@ import { UserContext } from "../../../context/UserContext";
 
 import instance from "../../axiosInstance";
 
-function useLogin(email, password) {
+function useLogin(data) {
+	const { email, password } = data;
 	const router = useRouter();
 	const { setCurrentUser } = useContext(UserContext);
 	const [isLoading, setIsLoadin] = useState(false);
