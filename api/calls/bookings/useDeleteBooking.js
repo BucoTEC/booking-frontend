@@ -1,28 +1,23 @@
 import { useState, useContext } from "react";
 
-function useDeleteBooking() {
+import { UserContext } from "../../../context/UserContext";
+
+function useDeleteBooking(data) {
+	const { id } = data;
 	const [isLoading, setIsLoading] = useState(false);
 	const { currentUser } = useContext(UserContext);
 
 	const deleteBooking = async () => {
 		try {
 			setIsLoading(true);
-			const res = await instance.post(
-				"/bookings",
-				{
-					date: startDate,
-					comment: textMessage,
-					amount: Number(numOfCustomers),
+			const res = await instance.delete(`/bookings/${id}`, {
+				headers: {
+					Authorization: `Bearer ${currentUser.token}`,
 				},
-				{
-					headers: {
-						Authorization: `Bearer ${currentUser.token}`,
-					},
-				}
-			);
+			});
 			console.log(res);
 			setIsLoading(false);
-			toast.success("success", {
+			toast.success("successfuly deleted booking", {
 				position: "bottom-center",
 				autoClose: 5000,
 				hideProgressBar: false,
