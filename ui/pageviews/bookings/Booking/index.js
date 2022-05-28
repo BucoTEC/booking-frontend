@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import cl from "./Booking.module.scss";
@@ -22,9 +23,11 @@ function Booking() {
 			) : (
 				<div className={cl.bookingWrapper}>
 					<h1>single booking</h1>
-					<h3>{router.query.id}</h3>
+					<h3>{id}</h3>
 					<div>
-						<button>edit booking</button>
+						<Link href={`/bookings/edit/${id}`}>
+							<button>edit booking</button>
+						</Link>
 						<button onClick={deleteHandler}>delete booking</button>
 					</div>
 				</div>
