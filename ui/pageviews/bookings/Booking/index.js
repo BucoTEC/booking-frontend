@@ -25,9 +25,6 @@ function Booking() {
 					<h1>single booking</h1>
 					<h3>{id}</h3>
 					<div>
-						<Link href={`/bookings/edit/${id}`}>
-							<button>edit booking</button>
-						</Link>
 						<button onClick={deleteHandler}>delete booking</button>
 					</div>
 				</div>
