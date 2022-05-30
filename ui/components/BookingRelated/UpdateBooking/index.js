@@ -7,6 +7,7 @@ function UpdateBooking() {
 	const [startDate, setStartDate] = useState(now);
 	const [textMessage, setTextMessage] = useState("");
 	const [numOfCustomers, setNumOfCustomers] = useState(1);
+
 	return (
 		<form action="/" onSubmit={(e) => submitHandler(e)}>
 			<DatePicker
