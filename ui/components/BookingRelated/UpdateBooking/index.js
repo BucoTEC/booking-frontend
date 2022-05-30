@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 
 function UpdateBooking() {
+	const now = new Date();
+
+	const [startDate, setStartDate] = useState(now);
+	const [textMessage, setTextMessage] = useState("");
+	const [numOfCustomers, setNumOfCustomers] = useState(1);
 	return (
 		<form action="/" onSubmit={(e) => submitHandler(e)}>
 			<DatePicker
