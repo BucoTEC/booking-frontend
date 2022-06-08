@@ -13,7 +13,7 @@ function Booking() {
 	const { getBooking, isLoading: loading } = useGetBooking(id);
 
 	useEffect(() => {
-		getBooking();
+		getBooking(id);
 	}, []);
 
 	const deleteHandler = () => {

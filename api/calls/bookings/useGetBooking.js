@@ -1,11 +1,10 @@
 import { useState, useContext } from "react";
-import PropTypes from "prop-types";
 
 import { UserContext } from "../../../context/UserContext";
 import instance from "../../axiosInstance";
 import { toast } from "react-toastify";
 
-function useGetBooking({ id }) {
+function useGetBooking(id) {
 	const [isLoading, setIsLoading] = useState(false);
 	const { currentUser } = useContext(UserContext);
 	const getBooking = async () => {
@@ -17,6 +16,7 @@ function useGetBooking({ id }) {
 				},
 			});
 			setIsLoading(false);
+			console.log(res.data.data);
 			return res;
 		} catch (err) {
 			setIsLoading(false);
@@ -36,7 +36,3 @@ function useGetBooking({ id }) {
 }
 
 export default useGetBooking;
-
-useGetBooking.PropTypes = {
-	id: PropTypes.string,
-};
