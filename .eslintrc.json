@@ -19,7 +19,8 @@
 	},
 	"plugins": ["react"],
 	"rules": {
-		"react/prop-types": "on",
-		"react/react-in-jsx-scope": "off"
+		// "react/prop-types": "on",
+		"react/prop-types": ["warn"]
+		// "react/react-in-jsx-scope": "off"
 	}
 }
