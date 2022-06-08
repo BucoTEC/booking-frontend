@@ -11,22 +11,13 @@ function useGetBooking({ id }) {
 	const getBooking = async () => {
 		try {
 			setIsLoading(true);
-			const res = await instance.delete(`/bookings/${id}`, {
+			const res = await instance.get(`/bookings/${id}`, {
 				headers: {
 					Authorization: `Bearer ${currentUser.token}`,
 				},
 			});
 			console.log(res);
 			setIsLoading(false);
-			toast.success("successfuly deleted booking", {
-				position: "bottom-center",
-				autoClose: 2000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-			});
 		} catch (err) {
 			setIsLoading(false);
 			console.log(err);
