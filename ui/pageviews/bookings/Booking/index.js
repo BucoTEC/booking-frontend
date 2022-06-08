@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import cl from "./Booking.module.scss";
 
 import useDeleteBooking from "../../../../api/calls/bookings/useDeleteBooking";
+import useGetBooking from "../../../../api/calls/bookings/useGetBooking";
 
 function Booking() {
 	const router = useRouter();
 	const { id } = router.query;
 	const { deleteBooking, isLoading } = useDeleteBooking({ id });
+	const { getBooking, isLoading: loading } = useGetBooking(id);
+
+	useEffect(() => {
+		getBooking();
+	}, []);
 
 	const deleteHandler = () => {
 		deleteBooking();
@@ -17,7 +23,7 @@ function Booking() {
 
 	return (
 		<>
-			{isLoading ? (
+			{isLoading || loading ? (
 				<h1>...Loading</h1>
 			) : (
 				<div className={cl.bookingWrapper}>

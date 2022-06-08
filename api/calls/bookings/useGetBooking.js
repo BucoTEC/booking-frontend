@@ -16,8 +16,8 @@ function useGetBooking({ id }) {
 					Authorization: `Bearer ${currentUser.token}`,
 				},
 			});
-			console.log(res);
 			setIsLoading(false);
+			return res;
 		} catch (err) {
 			setIsLoading(false);
 			console.log(err);
